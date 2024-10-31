@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="eac57254-769c-40c3-b515-e7ba3fc048ba">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     tbprestamos.`folio` AS tbprestamos_folio,
+     tbprestamos.`fecha` AS tbprestamos_fecha,
+     tbprestamos.`clave` AS tbprestamos_clave,
+     tbprestamos.`idcliente` AS tbprestamos_idcliente
+FROM
+     `tbprestamos` tbprestamos]]>
+	</queryString>
+	<field name="tbprestamos_folio" class="java.lang.Integer"/>
+	<field name="tbprestamos_fecha" class="java.sql.Date"/>
+	<field name="tbprestamos_clave" class="java.lang.Integer"/>
+	<field name="tbprestamos_idcliente" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="197" y="20" width="166" height="37" uuid="af2fc31f-cc8e-4bdf-9745-cba6aa642de5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial Black" size="24"/>
+				</textElement>
+				<text><![CDATA[Prestamos]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="422" y="57" width="100" height="20" uuid="e23ee883-0e3f-4961-9ac0-de8b27020081"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="15" width="100" height="20" uuid="f05e7761-df6a-4419-9f8a-29e7c384f55d"/>
+				<textFieldExpression><![CDATA[$F{tbprestamos_folio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="134" y="15" width="100" height="20" uuid="2b00a839-dfa5-4edc-b20f-fda43f320092"/>
+				<textFieldExpression><![CDATA[$F{tbprestamos_fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="263" y="15" width="100" height="20" uuid="c3a9e3d0-e421-4c44-b54d-effa841aba68"/>
+				<textFieldExpression><![CDATA[$F{tbprestamos_clave}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="410" y="15" width="100" height="20" uuid="15ad26d3-395a-4170-ae90-6d6e437597ca"/>
+				<textFieldExpression><![CDATA[$F{tbprestamos_idcliente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="34" width="100" height="20" uuid="1eea4d0e-5044-4385-bff0-c6900b2c3680"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
